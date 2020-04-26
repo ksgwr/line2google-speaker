@@ -1,0 +1,2 @@
+# line2google-speaker
+raspberry pi上でLINEとGoogleNestHubと連携するためのスクリプト郡
