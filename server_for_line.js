@@ -29,19 +29,24 @@ http.createServer(function (request, response) {
 
   request.on('end', function () {
     console.log('post_data : ' + post_data);
+    try {
+      const webhook = JSON.parse(post_data).events[0];
+      if (webhook.type != 'message' || webhook.message.type != 'text') {
+        return;
+      }
+      // 特定の人からのメッセージのみ発話
+      if (!Array.isArray(config.speakable_userids) || config.speakable_userids.some(x => x == webhook.source.userId)) {
+        const data_text = webhook.message.text;
+        googlehome_speak(config.begin_message + data_text);
+      }
 
-    const webhook = JSON.parse(post_data).events[0];
-    if (webhook.type != 'message' || webhook.message.type != 'text') {
+      response.writeHead(200, { 'Content-Type': 'text/plain' });
+      response.end();
+    } catch (e) {
+      console.log(e);
+      response.writeHead(500, { 'Content-Type': 'text/plain' });
+      response.end();
       return;
     }
-
-    // 特定の人からのメッセージのみ発話
-    if (config.speakable_userid == '' || webhook.source.userId == config.speakable_userid) {
-      const data_text = webhook.message.text;
-      googlehome_speak(config.begin_message + data_text);
-    }
-
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end();
   });
 }).listen(config.server_port);
