@@ -1,0 +1,11 @@
+--- app/node_modules/google-home-notifier/package.json	2020-04-29 15:55:40.535558359 +0900
++++ app/node_modules/google-home-notifier/package.json-new	2020-04-29 16:09:34.198844159 +0900
+@@ -36,7 +36,7 @@
+     "body-parser": "^1.15.2",
+     "castv2-client": "^1.1.2",
+     "express": "^4.14.0",
+-    "google-tts-api": "https://github.com/darrencruse/google-tts/tarball/british-voice",
++    "google-tts-api": "0.0.4",
+     "mdns": "^2.3.3",
+     "ngrok": "^2.2.4"
+   },

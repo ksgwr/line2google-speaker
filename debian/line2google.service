@@ -1,0 +1,12 @@
+[Unit]
+Description=ngrok and line2google server
+After=network.target
+
+[Service]
+ExecStart=/opt/line2google/startup.sh
+ExecStartPost=/usr/local/bin/node /opt/line2google/send_ngrok_url.js
+Restart=always
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

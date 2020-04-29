@@ -1,0 +1,9 @@
+Source: line2google
+Maintainer: ksgwr <dummy@email.com>
+Build-Depends: cdbs, debhelper (>=10)
+Standards-Version: 0.1
+ 
+Package: line2google
+Architecture: all
+Depends: nodejs
+Description: line message api to google home speaker node server

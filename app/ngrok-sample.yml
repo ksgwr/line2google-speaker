@@ -1,0 +1,6 @@
+authtoken: <your auth token here>
+region: jp
+tunnels:
+  myapp-http:
+    addr: 8080
+    proto: http

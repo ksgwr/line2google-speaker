@@ -1,5 +1,12 @@
 # Secrets
 secrets.json
+ngrok.yml
+
+# Debian
+*.debhelper
+debian/files
+debian/line2google
+*.substvars
 
 # Logs
 logs
