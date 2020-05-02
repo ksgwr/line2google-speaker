@@ -35,7 +35,7 @@ http.createServer(function (request, response) {
         return;
       }
       // 特定の人からのメッセージのみ発話
-      if (!Array.isArray(config.speakable_userids) || config.speakable_userids.some(x => x == webhook.source.userId)) {
+      if ((!Array.isArray(config.speakable_userids) || config.speakable_userids.some(x => x == webhook.source.userId)) && !webhook.message.text.startsWith('\n')) {
         const data_text = webhook.message.text;
         googlehome_speak(config.begin_message + data_text);
       }
