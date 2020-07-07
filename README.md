@@ -40,3 +40,14 @@ $ ls /opt/line2google
 ```
 $ sudo dpkg -r line2google
 ```
+
+## Restart App
+
+```
+$ sudo systemctl restart line2google
+```
+
+## Check Log
+```
+$ sudo journalctl
+```

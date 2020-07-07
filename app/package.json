@@ -2,6 +2,7 @@
   "dependencies": {
     "@line/bot-sdk": "^6.8.4",
     "google-home-notifier": "^1.2.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "express": "^4.17.1"
   }
 }
