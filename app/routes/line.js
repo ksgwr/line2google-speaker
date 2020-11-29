@@ -6,7 +6,8 @@ router.post('/', function(req, res) {
   console.log(req.body);
   try {
      const webhook = req.body.events[0];
-     if (webhook.type != 'message' || webhook.message.type != 'text') {
+     if (webhook == undefined || webhook.type != 'message' || webhook.message.type != 'text') {
+       res.send({status:"OK"});
        return;
      }
      // 特定の人からのメッセージのみ発話
@@ -17,7 +18,7 @@ router.post('/', function(req, res) {
             global.googlehome_speak(config.begin_message + data_text);
 	}
      }
-     res.send({status:"OK"});
+     res.send({status:"RECEIVED"});
    } catch (e) {
     console.log(e);
     res.status(500).send({message:"error"});
